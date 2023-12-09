@@ -12,20 +12,11 @@ function Login() {
     password: "",
   });
 
-  const { email, password } = formData; // destructuring
+  const { email, password } = formData; 
 
-  /**
-   * useDispatch() returns a reference to the dispatch function
-   * from the Redux store. You may use it to dispatch actions
-   * as needed.
-   */
+ 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  /**
-   * useSelector() allows you to extract data from the Redux store state,
-   * using a selector function.
-   */
 
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
@@ -36,7 +27,7 @@ function Login() {
       toast.error(message);
     }
 
-    // Redirect when logged in
+   
     if (isSuccess || user) {
       navigate("/");
     }
@@ -69,7 +60,7 @@ function Login() {
   return (
     <>
       <section className="heading">
-        <h1>
+        <h1 className="login">
           <FaSignInAlt /> Login
         </h1>
         <p>Please log in to get support</p>

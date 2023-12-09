@@ -60,17 +60,17 @@ function NewTicket() {
         </div>
         <form onSubmit={onSubmit}>
           <div className="form-group">
-            <label htmlFor="product">Product</label>
+            <label htmlFor="product">Issue name</label>
             <select
-              name="product"
+              name="Issue name"
               id="product"
               value={product}
               onChange={(e) => setProduct(e.target.value)}
             >
-              <option value="iPhone">iPhone</option>
-              <option value="Macbook Pro">Macbook Pro</option>
-              <option value="iMac">iMac</option>
-              <option value="iPad">iPad</option>
+              <option value="SAP error">Unable to open SAP</option>
+              <option value="Error">Got an error</option>
+              <option value="Locked">locked due to password</option>
+              <option value="others">others</option>
             </select>
           </div>
           <div className="form-group">

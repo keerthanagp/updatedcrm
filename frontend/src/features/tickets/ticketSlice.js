@@ -10,27 +10,13 @@ const initialState = {
   message: ''
 }
 
-// Create new ticket
-/**
- * createAsyncThunk: A function that accepts a Redux action type string and
- * a callback function that should return a promise.
- * It generates promise lifecycle action types based
- * on the action type prefix that you pass in,
- * and returns a thunk action creator that will
- * run the promise callback and dispatch the
- * lifecycle actions based on the returned promise.
- * This abstracts the standard recommended approach for handling async request lifecycles.
- */
+
 export const createTicket = createAsyncThunk(
   'tickets/create',
   async (ticketData, thunkAPI) => {
-    /**
-     * thunkAPI: an object containing all of the parameters
-     * that are normally passed to a Redux thunk function,
-     * as well as additional options: https://redux-toolkit.js.org/api/createAsyncThunk
-     */
+    
     try {
-      // Token is required for authentication
+      
       const token = thunkAPI.getState().auth.user.token
       return await ticketService.createTicket(ticketData, token)
     } catch (error) {
@@ -50,13 +36,8 @@ export const createTicket = createAsyncThunk(
 export const getTickets = createAsyncThunk(
   'tickets/getAll',
   async (_, thunkAPI) => {
-    /**
-     * thunkAPI: an object containing all of the parameters
-     * that are normally passed to a Redux thunk function,
-     * as well as additional options: https://redux-toolkit.js.org/api/createAsyncThunk
-     */
+   
     try {
-      // Token is required for authentication
       const token = thunkAPI.getState().auth.user.token
       return await ticketService.getTickets(token)
     } catch (error) {
@@ -76,13 +57,9 @@ export const getTickets = createAsyncThunk(
 export const getTicket = createAsyncThunk(
   'tickets/get',
   async (ticketId, thunkAPI) => {
-    /**
-     * thunkAPI: an object containing all of the parameters
-     * that are normally passed to a Redux thunk function,
-     * as well as additional options: https://redux-toolkit.js.org/api/createAsyncThunk
-     */
+    
     try {
-      // Token is required for authentication
+   
       const token = thunkAPI.getState().auth.user.token
       return await ticketService.getTicket(ticketId, token)
     } catch (error) {
@@ -102,11 +79,7 @@ export const getTicket = createAsyncThunk(
 export const closeTicket = createAsyncThunk(
   'tickets/close',
   async (ticketId, thunkAPI) => {
-    /**
-     * thunkAPI: an object containing all of the parameters
-     * that are normally passed to a Redux thunk function,
-     * as well as additional options: https://redux-toolkit.js.org/api/createAsyncThunk
-     */
+   
     try {
       // Token is required for authentication
       const token = thunkAPI.getState().auth.user.token

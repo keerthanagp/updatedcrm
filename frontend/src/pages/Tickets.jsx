@@ -13,7 +13,7 @@ function Tickets() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Unmounting
+   
     return () => {
       if (isSuccess) {
         dispatch(reset());
@@ -34,7 +34,7 @@ function Tickets() {
       <div className="tickets">
         <div className="ticket-headings">
           <div>Date</div>
-          <div>Product</div>
+          <div>Issue name</div>
           <div>Status</div>
           <div></div>
         </div>
