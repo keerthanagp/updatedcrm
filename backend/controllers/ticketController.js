@@ -3,15 +3,7 @@ const asyncHandler = require('express-async-handler')
 const User = require('../models/userModel')
 const Ticket = require('../models/ticketModel')
 
-// @desc    Get user tickets
-// @route   GET /api/tickets
-// @access  Private
 
-/**
- * 'asyncHandler' is a simple middleware for handling exceptions
- * inside of async express routes and passing them to your express
- * error handlers.
- */
 const getTickets = asyncHandler(async (req, res) => {
   // Get user using the id and JWT
   const user = await User.findById(req.user.id)
@@ -26,9 +18,7 @@ const getTickets = asyncHandler(async (req, res) => {
   res.status(200).json(tickets)
 })
 
-// @desc    Get user ticket
-// @route   GET /api/tickets/:id
-// @access  Private
+
 const getTicket = asyncHandler(async (req, res) => {
   // Get user using the id and JWT
   const user = await User.findById(req.user.id)
@@ -54,18 +44,16 @@ const getTicket = asyncHandler(async (req, res) => {
   res.status(200).json(ticket)
 })
 
-// @desc    Create new ticket
-// @route   POST /api/ticket
-// @access  Private
+
 const createTicket = asyncHandler(async (req, res) => {
   const { product, description } = req.body
 
   if (!product || !description) {
-    res.status(400) // Bad request
+    res.status(400) 
     throw new Error('Please provide a product and description')
   }
 
-  // Get user using the id and JWT
+ 
   const user = await User.findById(req.user.id)
 
   if (!user) {
@@ -83,11 +71,9 @@ const createTicket = asyncHandler(async (req, res) => {
   res.status(201).json(ticket)
 })
 
-// @desc    Delete ticket
-// @route   DELETE /api/tickets/:id
-// @access  Private
+
 const deleteTicket = asyncHandler(async (req, res) => {
-  // Get user using the id and JWT
+
   const user = await User.findById(req.user.id)
 
   if (!user) {
@@ -102,7 +88,7 @@ const deleteTicket = asyncHandler(async (req, res) => {
     throw new Error('Ticket not found')
   }
 
-  // Check if ticket belongs to user
+
   if (ticket.user.toString() !== req.user.id) {
     res.status(401)
     throw new Error('Not authorized')
@@ -113,11 +99,9 @@ const deleteTicket = asyncHandler(async (req, res) => {
   res.status(200).json({ success: true })
 })
 
-// @desc    Update ticket
-// @route   PUT /api/tickets/:id
-// @access  Private
+
 const updateTicket = asyncHandler(async (req, res) => {
-  // Get user using the id and JWT
+ 
   const user = await User.findById(req.user.id)
 
   if (!user) {
@@ -132,7 +116,7 @@ const updateTicket = asyncHandler(async (req, res) => {
     throw new Error('Ticket not found')
   }
 
-  // Check if ticket belongs to user
+ 
   if (ticket.user.toString() !== req.user.id) {
     res.status(401)
     throw new Error('Not authorized')
