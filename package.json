@@ -6,21 +6,22 @@
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js --ignore client",
+    "build":"npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix frontend && npm run build --prefix frontend",
     "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Keerthana",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
-    "concurrently": "^7.0.0",
+    "concurrently": "^7.6.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.12.3"
+    "mongoose": "^6.12.3",
+    "nodemon": "^3.0.2"
   },
   "devDependencies": {
     "nodeman": "^1.1.2"
