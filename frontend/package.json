@@ -1,6 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
+  "proxy": "https://crmapp-ntpq.onrender.com/",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
@@ -16,8 +17,7 @@
     "react-router-dom": "^6.2.1",
     "react-script": "^2.0.5",
     "react-scripts": "^5.0.1",
-    "react-toastify": "^8.2.0",
-    "support-desk": "file:.."
+    "react-toastify": "^8.2.0"
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
