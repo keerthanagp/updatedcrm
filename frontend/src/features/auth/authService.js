@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'https://crmapp-ntpq.onrender.com/'
+const API_URL = 'https://updatedcrm.onrender.com'
 
 // Register user
 const register = async userData => {
